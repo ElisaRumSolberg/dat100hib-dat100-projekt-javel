@@ -23,6 +23,7 @@ public class DayMain {
          Remember to teste the methods as you implement them
          Remember to also to check that you get the expected results
          */
-
+        DailyprintPowerPrices(powerprices_day); // tester strømpriser
+        DailyPower.printPowerUsage(powerusage_day); // tester strømforbruk
     }
 }

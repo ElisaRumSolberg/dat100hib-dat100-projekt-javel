@@ -4,8 +4,14 @@ public class DailyPower {
 
     // a) print power prices during a day
     public static void printPowerPrices(double[] prices) {
+        for (int i = 0; i<prices.length ; i++) {
+            double pris = prices [i]; //henter verdien
+            System.out.printf("%.2f kWh ", pris); //skriver ut verdien med 2 desimaler og kWh
+        }
+        System.out.println();
+    }
 
-        // TODO
+
 
     }
 

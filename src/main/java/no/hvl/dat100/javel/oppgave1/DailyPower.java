@@ -18,7 +18,10 @@ public class DailyPower {
     // b) print power usage during a day
     public static void printPowerUsage(double[] usage) {
 
-        // TODO
+        public static void printPowerUsage(double[] usage) {
+            for( int i = 0; i<usage.length; i++) {
+                double verdi = usage[i];
+                System.out.printf("%.2f NOK ", verdi);
 
     }
 

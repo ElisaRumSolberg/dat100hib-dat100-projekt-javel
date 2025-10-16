@@ -38,11 +38,11 @@ public class DayMain {
         double norgespris = DailyPower.computeNorgesPrice(powerusage_day);
         System.out.println("G: Totalt Norgespris: " + norgespris + " kr");
 
-        //g2
+        //h
         double peak = DailyPower.findPeakUsage(powerusage_day);
         System.out.println("G2: Maksimum (peak) forbruk: " + peak + " kWh");
 
-        //h
+        //i
         double avg = DailyPower.findAvgPower(powerusage_day);
         System.out.println("Gjennomsnittlig forbruk (per time): " + avg + " kWh");
 

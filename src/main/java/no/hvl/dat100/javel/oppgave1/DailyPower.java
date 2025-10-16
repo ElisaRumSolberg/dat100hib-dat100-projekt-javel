@@ -1,7 +1,7 @@
 package no.hvl.dat100.javel.oppgave1;
 
 public class DailyPower {
-
+    //Samsam
     // a) print power prices during a day
     public static void printPowerPrices(double[] prices) {
         for (int i = 0; i<prices.length ; i++) {
@@ -9,7 +9,7 @@ public class DailyPower {
         }
 
     }
-
+     //Samsam
 
     // b) print power usage during a day
     public static void printPowerUsage(double[] usage) {
@@ -18,27 +18,35 @@ public class DailyPower {
             }
         }
 
-
+     // Alissa
     // c) compute power usage for a single day
     public static double computePowerUsage(double[] usage) {
-
+    if(usage == null) {
+        throw new IllegalArgumentException("usage array is null");
+    }
         double sum = 0;
-
-        // TODO
+        for(double u : usage) {
+            sum += u;
+        }
 
         return sum;
     }
-
+     // Alissa
     // d) compute spot price for a single day
     public static double computeSpotPrice(double[] usage, double[] prices) {
-
+    if(usage == null || prices == null) {
+        throw new IllegalArgumentException("usage/price array is null");
+    }
+    if (usage.length != prices.length) {
+        throw new IllegalArgumentException("usage and prices must have same length");
+    }
         double price = 0;
 
         // TODO
 
         return price;
     }
-
+     //Elisa
     // e) compute power support for a given usage and price
     private static final double THRESHOLD = 0.9375;
     private static final double PERCENTAGE = 0.9;
@@ -51,7 +59,7 @@ public class DailyPower {
 
         return support;
     }
-
+     //Elisa
     // f) compute power support for a single day
     public static double computePowerSupport(double[] usage, double[] prices) {
 
@@ -68,8 +76,9 @@ public class DailyPower {
     public static double computeNorgesPrice(double[] usage) {
 
         double price = 0;
-
-        // TODO
+        for (int i = 0; i < usage.length; i++) {
+            price += usage[i]*prices[i];
+        }
 
         return price;
     }

@@ -4,34 +4,35 @@ public class DailyPower {
     //Samsam
     // a) print power prices during a day
     public static void printPowerPrices(double[] prices) {
-        for (int i = 0; i<prices.length ; i++) {
+        for (int i = 0; i < prices.length; i++) {
             System.out.printf("Hour %02d: %.3f NOK/kWh%n", i, prices[i]);
         }
 
     }
-     //Samsam
+    //Samsam
 
     // b) print power usage during a day
     public static void printPowerUsage(double[] usage) {
-            for (int i = 0; i < usage.length; i++) {
-                System.out.printf("Hour %02d: %.3f kWh%n", i, usage[i]);
-            }
+        for (int i = 0; i < usage.length; i++) {
+            System.out.printf("Hour %02d: %.3f kWh%n", i, usage[i]);
         }
+    }
 
-     // Alissa
+    // Alissa
     // c) compute power usage for a single day
     public static double computePowerUsage(double[] usage) {
-    if(usage == null) {
-        throw new IllegalArgumentException("usage array is null");
-    }
+        if (usage == null) {
+            throw new IllegalArgumentException("usage array is null");
+        }
         double sum = 0;
-        for(double u : usage) {
+        for (double u : usage) {
             sum += u;
         }
 
         return sum;
     }
-     // Alissa
+
+    // Alissa
     // d) compute spot price for a single day
     public static double computeSpotPrice(double[] usage, double[] prices) {
         if (usage == null || prices == null) {
@@ -48,7 +49,8 @@ public class DailyPower {
 
         return price;
     }
-     //Elisa
+
+    //Elisa
     // e) compute power support for a given usage and price
     private static final double THRESHOLD = 0.9375;
     private static final double PERCENTAGE = 0.9;
@@ -61,7 +63,8 @@ public class DailyPower {
         return 0.0;
 
     }
-     //Elisa
+
+    //Elisa
     // f) compute power support for a single day
     public static double computePowerSupport(double[] usage, double[] prices) {
         double support = 0.0;
@@ -113,10 +116,14 @@ public class DailyPower {
     public static double findAvgPower(double[] usage) {
 
         double average = 0;
+        double total = 0;
 
-        // TODO
+        for (int i = 0; i < usage.length; i++) {
+            total += usage[i];
+        }
+        average = total / usage.length;
+
 
         return average;
     }
-
 }

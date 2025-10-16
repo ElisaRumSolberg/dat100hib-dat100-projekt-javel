@@ -5,20 +5,16 @@ public class DailyPower {
     // a) print power prices during a day
     public static void printPowerPrices(double[] prices) {
         for (int i = 0; i<prices.length ; i++) {
-            double pris = prices [i]; //henter verdien
-            System.out.printf("%.2f kWh ", pris); //skriver ut verdien med 2 desimaler og kWh
+            System.out.printf("Hour %02d: %.3f NOK/kWh%n", i, prices[i]);
         }
+
     }
-
-
 
 
     // b) print power usage during a day
     public static void printPowerUsage(double[] usage) {
             for (int i = 0; i < usage.length; i++) {
-                double verdi = usage[i];
-                System.out.printf("%.2f NOK ", verdi);
-
+                System.out.printf("Hour %02d: %.3f kWh%n", i, usage[i]);
             }
         }
 

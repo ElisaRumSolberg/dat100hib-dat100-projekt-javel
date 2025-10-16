@@ -11,11 +11,13 @@ public class CustomerMain {
         System.out.println("==============");
         System.out.println();
 
-        /*
-        TODO
-
-         Write code that creates a Customer object and teste the methods implemented in the class
-
-        */
+        // 1) Create a Customer object (constructor test)
+        Customer c1 = new Customer(
+                "Elisa Rumeysa Solberg",
+                "elisarumeysasolbeg@gmail.com",
+                1001,
+                PowerAgreementType.SPOTPRICE
+        );
+        // jeg må forsetter
     }
 }

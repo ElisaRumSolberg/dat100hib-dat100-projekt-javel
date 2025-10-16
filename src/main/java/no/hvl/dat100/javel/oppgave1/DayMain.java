@@ -34,18 +34,17 @@ public class DayMain {
         double totalSupport = DailyPower.computePowerSupport(powerusage_day, powerprices_day);
         System.out.printf("F: Total strømstøtte: %.3f NOK%n", totalSupport);
 
-        //g
+        //g   Norgespris: total cost with fixed price 0.5 NOK/kWh
         double norgespris = DailyPower.computeNorgesPrice(powerusage_day);
         System.out.println("G: Totalt Norgespris: " + norgespris + " kr");
 
-        //h
+        //h  Peak (maximum hourly usage)
         double peak = DailyPower.findPeakUsage(powerusage_day);
-        System.out.println("G2: Maksimum (peak) forbruk: " + peak + " kWh");
+        System.out.println("H: Maksimum (peak) forbruk: " + peak + " kWh");
 
-        //i
-        double avg = DailyPower.findAvgPower(powerusage_day);
-        System.out.println("Gjennomsnittlig forbruk (per time): " + avg + " kWh");
-
+        //i  Peak (maximum hourly usage)
+        double average = DailyPower.findAvgPower(powerusage_day);
+        System.out.printf("i: Gjennomsnittlig forbruk (per time): %.3f kWh%n", average);
 
     }
 }

@@ -8,9 +8,7 @@ public class DailyPower {
             double pris = prices [i]; //henter verdien
             System.out.printf("%.2f kWh ", pris); //skriver ut verdien med 2 desimaler og kWh
         }
-        System.out.println();
     }
-
 
 
     }
@@ -18,11 +16,13 @@ public class DailyPower {
     // b) print power usage during a day
     public static void printPowerUsage(double[] usage) {
 
-        public static void printPowerUsage(double[] usage) {
-            for( int i = 0; i<usage.length; i++) {
+        public static void printPowerUsage ( double[] usage){
+            for (int i = 0; i < usage.length; i++) {
                 double verdi = usage[i];
                 System.out.printf("%.2f NOK ", verdi);
 
+            }
+        }
     }
 
     // c) compute power usage for a single day

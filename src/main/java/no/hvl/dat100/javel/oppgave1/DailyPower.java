@@ -41,8 +41,9 @@ public class DailyPower {
         throw new IllegalArgumentException("usage and prices must have same length");
     }
         double price = 0;
-
-        // TODO
+        for (int i = 0; i < usage.length; i++) {
+            price += usage[i]*prices[i];
+        }
 
         return price;
     }
@@ -71,18 +72,21 @@ public class DailyPower {
     }
 
     private static final double NORGESPRIS_KWH = 0.5;
-
+     // Alissa
     // g) compute norges pris for a single day
     public static double computeNorgesPrice(double[] usage) {
+        if (usage == null) {
+            throw new IllegalArgumentException("usage array is null");
+        }
 
         double price = 0;
-        for (int i = 0; i < usage.length; i++) {
-            price += usage[i]*prices[i];
+        for (double u : usage) {
+            price += u * NORGESPRIS_KWH;
         }
 
         return price;
     }
-
+     //Elisa
     // g) compute peak usage during a single day
     public static double findPeakUsage(double[] usage) {
 

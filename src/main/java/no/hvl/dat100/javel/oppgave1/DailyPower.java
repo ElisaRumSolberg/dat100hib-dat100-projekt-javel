@@ -92,10 +92,19 @@ public class DailyPower {
     // g) compute peak usage during a single day
     public static double findPeakUsage(double[] usage) {
 
+        if (usage == null) {
+            throw new IllegalArgumentException("usage array is null");
+        }
+        if (usage.length == 0) {
+            return 0; // no data -> peak is 0
+        }
+
         double temp_max = 0;
-
-        // TODO
-
+        for (double u : usage) {
+            if (u > temp_max) {
+                temp_max = u;
+            }
+        }
         return temp_max;
     }
 

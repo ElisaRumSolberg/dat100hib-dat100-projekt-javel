@@ -34,6 +34,15 @@ public class DayMain {
         double totalSupport = DailyPower.computePowerSupport(powerusage_day, powerprices_day);
         System.out.printf("F : Total strømstøtte: %.3f NOK%n", totalSupport);
 
+        //g
+        double norgespris = DailyPower.computeNorgesPrice(powerusage_day);
+        System.out.println("Totalt Norgespris: " + norgespris + " kr");
+
+        //g2
+        double peak = DailyPower.findPeakUsage(powerusage_day);
+        System.out.println("Maksimum (peak) forbruk: " + peak + " kWh");
+
+
 
 
 

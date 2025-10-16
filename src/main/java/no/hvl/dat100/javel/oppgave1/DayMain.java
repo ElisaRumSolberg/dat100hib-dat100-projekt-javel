@@ -32,25 +32,20 @@ public class DayMain {
 
         // f) compute total power support
         double totalSupport = DailyPower.computePowerSupport(powerusage_day, powerprices_day);
-        System.out.printf("F : Total strømstøtte: %.3f NOK%n", totalSupport);
+        System.out.printf("F: Total strømstøtte: %.3f NOK%n", totalSupport);
 
         //g
         double norgespris = DailyPower.computeNorgesPrice(powerusage_day);
-        System.out.println("Totalt Norgespris: " + norgespris + " kr");
+        System.out.println("G: Totalt Norgespris: " + norgespris + " kr");
 
         //g2
         double peak = DailyPower.findPeakUsage(powerusage_day);
-        System.out.println("Maksimum (peak) forbruk: " + peak + " kWh");
+        System.out.println("G2: Maksimum (peak) forbruk: " + peak + " kWh");
+
+        //h
+        double avg = DailyPower.findAvgPower(powerusage_day);
+        System.out.println("Gjennomsnittlig forbruk (per time): " + avg + " kWh");
 
 
-
-        /*
-        TODO
-
-         Write code that tests the methods you implement in the DailyPower class
-         Remember to teste the methods as you implement them
-         Remember to also to check that you get the expected results
-         */
-         // tester strømpriser
     }
 }

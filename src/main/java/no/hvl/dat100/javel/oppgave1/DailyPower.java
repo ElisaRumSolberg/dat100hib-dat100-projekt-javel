@@ -89,7 +89,7 @@ public class DailyPower {
 
     }
 
-    // g) compute peak usage during a single day
+    // h) compute peak usage during a single day
     public static double findPeakUsage(double[] usage) {
 
         if (usage == null) {
@@ -108,7 +108,7 @@ public class DailyPower {
         return temp_max;
     }
 
-    //h)
+    //i)
 
     public static double findAvgPower(double[] usage) {
 

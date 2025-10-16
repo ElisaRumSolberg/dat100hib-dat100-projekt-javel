@@ -18,8 +18,24 @@ public class DayMain {
 
         System.out.println("=== STRØMPRISER ===");
         DailyPower.printPowerPrices(powerprices_day);
+
         System.out.println("\n=== STRØMBRUK ===");
         DailyPower.printPowerUsage(powerusage_day);
+
+        // c) compute total power usage
+        double totalUsage = DailyPower.computePowerUsage(powerusage_day);
+        System.out.printf("C: Totalt strømforbruk: %.3f kWh%n", totalUsage);
+
+        // d) compute total spot price (uten støtte)
+        double totalSpotPrice = DailyPower.computeSpotPrice(powerusage_day, powerprices_day);
+        System.out.printf("D: Total spotpris (uten støtte): %.3f NOK%n", totalSpotPrice);
+
+        // f) compute total power support
+        double totalSupport = DailyPower.computePowerSupport(powerusage_day, powerprices_day);
+        System.out.printf("F : Total strømstøtte: %.3f NOK%n", totalSupport);
+
+
+
 
 
         /*

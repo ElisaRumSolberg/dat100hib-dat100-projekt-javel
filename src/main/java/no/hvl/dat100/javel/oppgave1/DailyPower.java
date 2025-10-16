@@ -53,21 +53,21 @@ public class DailyPower {
     private static final double PERCENTAGE = 0.9;
 
     private static double getSupport(double usage, double price) {
+        if (price > THRESHOLD && usage > 0) {
+            double excess = price - THRESHOLD;
+            return excess * PERCENTAGE * usage;
+        }
+        return 0.0;
 
-        double support = 0;
-
-        // TODO
-
-        return support;
     }
      //Elisa
     // f) compute power support for a single day
     public static double computePowerSupport(double[] usage, double[] prices) {
-
-        double support = 0;
-
-        // TODO
-
+        double support = 0.0;
+        int n = Math.min(usage.length, prices.length);
+        for (int i = 0; i < n; i++) {
+            support += getSupport(usage[i], prices[i]);
+        }
         return support;
     }
 
@@ -85,6 +85,7 @@ public class DailyPower {
         }
 
         return price;
+
     }
      //Elisa
     // g) compute peak usage during a single day
@@ -96,6 +97,8 @@ public class DailyPower {
 
         return temp_max;
     }
+
+    //h)
 
     public static double findAvgPower(double[] usage) {
 

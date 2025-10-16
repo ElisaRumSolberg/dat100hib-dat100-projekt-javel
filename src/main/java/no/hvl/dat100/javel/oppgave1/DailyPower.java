@@ -11,19 +11,17 @@ public class DailyPower {
     }
 
 
-    }
+
 
     // b) print power usage during a day
     public static void printPowerUsage(double[] usage) {
-
-        public static void printPowerUsage ( double[] usage){
             for (int i = 0; i < usage.length; i++) {
                 double verdi = usage[i];
                 System.out.printf("%.2f NOK ", verdi);
 
             }
         }
-    }
+
 
     // c) compute power usage for a single day
     public static double computePowerUsage(double[] usage) {
@@ -98,4 +96,5 @@ public class DailyPower {
 
         return average;
     }
+
 }

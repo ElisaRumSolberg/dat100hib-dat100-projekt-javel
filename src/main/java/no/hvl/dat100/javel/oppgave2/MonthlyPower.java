@@ -13,9 +13,17 @@ public class MonthlyPower {
 
     // b) print power prices for a month    alissa
     public static void print_PowerPrices(double[][] prices) {
-
-        // TODO
-
+        if(prices==null){
+            throw new IllegalArgumentException("Prices matrix is null");
+        }
+        for(int day=0; day<prices.length; day++){
+            if(prices[day]==null){
+                throw new IllegalArgumentException("Prices row (day"+(day+1)+") is null");
+            }
+            system.out.printf("===POWER PRICES - DAY %02d ===%n",day +1);
+            DailyPower.printPowerPrices(prices[day]);
+            System.out.println();
+        }
     }
 
     // c) compute total power usage for a month  elisa
@@ -41,10 +49,12 @@ public class MonthlyPower {
 
     // e) compute spot price alissa
     public static double computeSpotPrice(double[][] usage, double[][] prices) {
-
+        validateSAmeShape(usage,prices);
         double price = 0;
 
-        // TODO
+        for(int day=0; day<prices.length; day++){
+            price +=DailyPower.computeSpotPrice(usage[day],prices[day]);
+        }
 
         return price;
     }

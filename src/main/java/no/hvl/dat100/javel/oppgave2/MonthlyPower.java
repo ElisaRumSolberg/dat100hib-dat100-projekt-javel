@@ -17,7 +17,7 @@ public class MonthlyPower {
         }
 
     }
-
+    }
 
     // b) print power prices for a month    alissa
     public static void print_PowerPrices(double[][] prices) {
@@ -28,7 +28,7 @@ public class MonthlyPower {
             if(prices[day]==null){
                 throw new IllegalArgumentException("Prices row (day"+(day+1)+") is null");
             }
-            System.out.printf("===POWER PRICES - DAY %02d ===%n",day +1);
+            system.out.printf("===POWER PRICES - DAY %02d ===%n",day +1);
             DailyPower.printPowerPrices(prices[day]);
             System.out.println();
         }
@@ -36,12 +36,11 @@ public class MonthlyPower {
 
     // c) compute total power usage for a month  elisa
     public static double computePowerUsage(double[][] usage) {
+
         double sum = 0;
-        for (int i = 0; i < usage.length; i++) {
-            for (int j = 0; j < usage[i].length; j++) {
-                sum += usage[i][j];
-            }
-        }
+
+        // TODO
+
         return sum;
     }
 

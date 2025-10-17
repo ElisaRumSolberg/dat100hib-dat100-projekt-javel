@@ -32,7 +32,14 @@ public class Customers {
         boolean funnet = false;
         Customer c = null;
 
-        // TODO
+        for (int i = 0; i < customers.length; i++) {
+            Customer kunde = customers[i];
+            if (kunde != null && kunde.getCustomer_id() == customer_id) {
+                c = kunde;
+                funnet = true;
+                break;
+            }
+        }
 
         return c;
     }

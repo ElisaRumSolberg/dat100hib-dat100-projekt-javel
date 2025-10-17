@@ -19,7 +19,6 @@ public class MonthMain {
         System.out.println();
 
 
-
         /*
         TODO
 
@@ -28,14 +27,6 @@ public class MonthMain {
          Remember to also to check that you get the expected results
          */
 
-
-        // d)
-
-        double hytteThreshold = 1000;
-        double boligThreshold = 5000;
-
-        boolean hytteExceeded = MonthlyPower.exceedThreshold(power_usage_month, hytteThreshold);
-        boolean boligExceeded = MonthlyPower.exceededThreshold(power_usage_month, boligThreshold):
 
 
 

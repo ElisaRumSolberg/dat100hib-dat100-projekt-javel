@@ -58,7 +58,7 @@ public class MonthlyPower {
 
     // e) compute spot price alissa
     public static double computeSpotPrice(double[][] usage, double[][] prices) {
-        validateSAmeShape(usage,prices);
+
         double price = 0;
 
         for(int day=0; day<prices.length; day++){

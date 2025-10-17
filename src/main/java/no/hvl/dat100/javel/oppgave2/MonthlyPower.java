@@ -59,7 +59,7 @@ public class MonthlyPower {
                 if (usage > threshold) {
                     exceeded = true;
                 }
-                j++:
+                j++;
             }
             i++;
         }

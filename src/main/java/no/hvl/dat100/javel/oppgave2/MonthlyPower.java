@@ -50,10 +50,23 @@ public class MonthlyPower {
         boolean exceeded = false;
         double usage = 0;
 
-        // TODO
+        int i = 0;
+        while (i < powerusage.length && !exceeded) {
+            int j = 0;
+            while (j < powerusage[i].length && !exceeded) {
+                usage += powerusage[i][j];
+
+                if (usage > threshold) {
+                    exceeded = true;
+                }
+                j++:
+            }
+            i++;
+        }
 
         return exceeded;
     }
+
 
     // e) compute spot price alissa
     public static double computeSpotPrice(double[][] usage, double[][] prices) {

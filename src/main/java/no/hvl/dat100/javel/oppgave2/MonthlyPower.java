@@ -82,8 +82,11 @@ public class MonthlyPower {
 
         double price = 0;
 
-        // TODO
-
+    for (double [] day : usage) {
+        for (double hour : day) {
+            price += hour;
+        }
+    }
         return price;
     }
 }

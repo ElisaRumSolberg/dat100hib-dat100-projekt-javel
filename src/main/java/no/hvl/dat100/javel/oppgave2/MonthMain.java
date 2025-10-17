@@ -2,6 +2,7 @@ package no.hvl.dat100.javel.oppgave2;
 
 import no.hvl.dat100.javel.oppgave1.DayPowerData;
 
+
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class MonthMain {
@@ -27,5 +28,16 @@ public class MonthMain {
          Remember to also to check that you get the expected results
          */
 
-    }
+
+        // d)
+
+        double hytteThreshold = 1000;
+        double boligThreshold = 5000;
+
+        boolean hytteExceeded = MonthlyPower.exceedThreshold(power_usage_month, hytteThreshold);
+        boolean boligExceeded = MonthlyPower.exceededThreshold(power_usage_month, boligThreshold):
+
+
+
+          }
 }

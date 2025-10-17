@@ -112,6 +112,7 @@ public class DailyPower {
     }
 
     //i)
+    // Samsam
 
     public static double findAvgPower(double[] usage) {
 

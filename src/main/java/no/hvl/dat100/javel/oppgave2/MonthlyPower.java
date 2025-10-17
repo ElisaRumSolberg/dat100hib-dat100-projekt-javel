@@ -27,9 +27,9 @@ public class MonthlyPower {
         }
         for (int day = 0; day < prices.length; day++) {
             if (prices[day] == null) {
-                throw new IllegalArgumentException("Prices row (day" + (day + 1) + ") is null");
+                throw new IllegalArgumentException("Prices row (day " + (day + 1) + ") is null");
             }
-            System.out.printf("===POWER PRICES - DAY %02d ===%n", day + 1);
+            System.out.printf("===POWER PRICES - DAY %02d ===%n ", day + 1);
             DailyPower.printPowerPrices(prices[day]);
             System.out.println();
         }

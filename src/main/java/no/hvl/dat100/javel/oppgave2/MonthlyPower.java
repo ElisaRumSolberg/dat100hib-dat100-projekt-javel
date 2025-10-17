@@ -7,8 +7,16 @@ public class MonthlyPower {
     // a) print power usage for a month    samsam
     public static void print_PowerUsage(double[][] usage) {
 
-        // TODO
+          // i = dag, går gjennom alle dagene i tabellen
+        for (int i = 0; i < usage.length; i++) {
+            System.out.print("Day" + (i+1) + ":");
+        for (int j = 0; j < usage[i].length; j++) {    // j = timene
+            System.out.printf(" %.2f kWh", usage[i][j]);
+        }
 
+        }
+
+    }
     }
 
     // b) print power prices for a month    alissa

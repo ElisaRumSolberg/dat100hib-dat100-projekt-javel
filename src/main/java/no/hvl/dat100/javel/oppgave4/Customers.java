@@ -42,7 +42,18 @@ public class Customers {
 
         boolean inserted = false;
 
-        // TODO
+        if(c==null) return false;
+
+        if(getCustomer(c.getId())!=null){
+            return false;
+        }
+
+        for(int i=0;i<customers.length;i++){
+            if(customers[i]==null){
+                customers[i]=c;
+                return true;
+            }
+        }
 
         return inserted;
     }

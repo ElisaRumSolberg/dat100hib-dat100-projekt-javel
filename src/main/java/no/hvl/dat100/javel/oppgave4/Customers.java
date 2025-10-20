@@ -48,8 +48,25 @@ public class Customers {
     // d) add a customer to the reference table alissa
     public boolean addCustomer(Customer c) {
         boolean inserted = false;
+        if(c==null) {
+            return false;
+        }
+        int newId=c.getCustomer_id();
+        for (int i = 0; i < customers.length; i++) {
+            Customer existing = customers[i];
+            if (existing != null && existing.getCustomer_id() == newId) {
+                return false;
+            }
+        }
+        for (int i = 0; i < customers.length; i++) {
+            if(customers[i]==null) {
+                customers[i]=c;
+                inserted = true;
+                break;
+            }
+        }
 
-        // TODO
+
 
         return inserted;
 

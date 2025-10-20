@@ -23,19 +23,19 @@ public class CustomerMain {
         Customer c1 = new Customer(
                 "Elisa Rumeysa Solberg",
                 "elisarumeysasolbeg@gmail.com",
-                1001,
+                1002,
                 PowerAgreementType.SPOTPRICE
         );
         Customer c2 = new Customer(
                 "Alissa Ruya Aksel",
                 "rs.aksel.7@gmail.com",
-                1002,
+                1003,
                 PowerAgreementType.NORGESPRICE
         );
         Customer c3 = new Customer(
                 "Samsam Abdi-Kerim",
                 "samsam@hotmail.com",
-                1003,
+                1004,
                 PowerAgreementType.POWERSUPPORT
         );
 
@@ -85,7 +85,7 @@ public class CustomerMain {
                 "Alice Smith".equals(c.getName()) &&
                         "alice@example.com".equals(c.getEmail()) &&
                         c.getCustomer_id() == 1001 &&
-                        c.getAgreement() == PowerAgreementType.SPOTPRICE;
+                        c.getAgreement() == PowerAgreementType.NORGESPRICE;
 
         System.out.println("All basic tests passed for c?: " + ok);
         System.out.println("====================================");
@@ -101,7 +101,7 @@ public class CustomerMain {
         boolean ok2 =
                 "Alissa Ruya Aksel".equals(c2.getName()) &&
                         "rs.aksel.7@gmail.com".equals(c2.getEmail())&&
-                        c2.getCustomer_id()==1002 &&
+                        c2.getCustomer_id()==1003 &&
                         c2.getAgreement() ==PowerAgreementType.NORGESPRICE;
         System.out.println("All basic tests passed for c2?: " + ok2);
         System.out.println("====================================");
@@ -109,17 +109,9 @@ public class CustomerMain {
         boolean ok3=
                 "Samsam Abdi-Kerim".equals(c3.getName()) &&
                         "190154@stud.hvl.no".equals(c3.getEmail()) &&
-                        c3.getCustomer_id()==1003 &&
+                        c3.getCustomer_id()==1004 &&
                         c3.getAgreement() == PowerAgreementType.SPOTPRICE;
         System.out.println("All basic tests passed for c3?: " + ok3);
-
-
-
-
-
-
-
-
 
 
     }

@@ -1,10 +1,7 @@
 package no.hvl.dat100.javel.oppgave5;
 
 import no.hvl.dat100.javel.oppgave3.Customer;
-import no.hvl.dat100.javel.oppgave2.MonthlyPower;
 import no.hvl.dat100.javel.oppgave3.PowerAgreementType;
-
-import java.util.Arrays;
 
 public class Invoice {
 
@@ -14,10 +11,11 @@ public class Invoice {
     private double[][] prices; // power prices for this month
 
     private double amount; // power price for this month
-    private int customer_Id;
-    private String name;
-    private String email;
-    private String agreement;
+
+    // --- Adjust these per your course rules if needed ---
+    private static final double SUPPORT_THRESHOLD_NOK_PER_KWH = 0.70; // example threshold
+    private static final double SUPPORT_RATE = 0.90;                   // state covers 90% above threshold
+
 
 
     public Invoice(Customer c, String month, double[][] usage, double[][] power_prices) { // elisa
@@ -34,10 +32,7 @@ public class Invoice {
         this.usage = usage;
         this.prices = power_prices;
         this.amount = 0.0; // explicitly start at 0
-        this.customer_Id = customer_Id;
-        this.name = name;
-        this.email = email;
-        this.agreement = agreement;
+
 
     }
 
@@ -54,6 +49,43 @@ public class Invoice {
         return sum;
     }
 
+    public void computeAmount() {
+        if (c == null || c.getAgreement() == null) {
+            throw new IllegalArgumentException("Customer/agreement cannot be null");
+        }
+
+        PowerAgreementType agreement = c.getAgreement();
+        switch (agreement) {
+            case SPOTPRICE:
+                this.amount = spotCostNOK();
+                break;
+            case POWERSUPPORT:
+                this.amount = powerSupportCost();
+                break;
+            case NORGESPRICE:
+                this.amount = norgesPriceCost();
+                break;
+            default:
+                throw new IllegalArgumentException("Unknown agreement: " + agreement);
+        }
+    }
+
+    public void printInvoice() { //samsam
+        System.out.println("Customer Number" +  c.getCustomer_id());
+        System.out.println("Name" +  c.getName());
+        System.out.println("Email" +  c.getEmail());
+        System.out.println("Agreement" +  c.getAgreement());
+        System.out.println();
+        System.out.println("Month: " +  month);
+        System.out.printf("Usage:  %.2f kWh\n", usage);
+        System.out.printf("Amount:  %.2f\n", amount);
+
+
+    }
+
+    // ---- helpers ----
+
+    // Sum of kWh * hourly price (spot)
     private double spotCostNOK() {
         double sum = 0.0;
         for (int d = 0; d < usage.length; d++) {
@@ -69,45 +101,7 @@ public class Invoice {
         return sum;
     }
 
-    // simple (unweighted by kWh) monthly average of price
-    private double simpleMonthlyAveragePrice() {
-        double sum = 0.0;
-        int count = 0;
-        for (double[] day : prices) {
-            if (day == null) continue;
-            for (double p : day) {
-                sum += p;
-                count++;
-            }
-        }
-        return count == 0 ? 0.0 : sum / count;
-
-    }
-
-    public void computeAmount() { // Alissa
-        if(c ==null || c.getAgreement() == null){
-            throw new IllegalArgumentException("Customer cannot be null");
-        }
-
-        PowerAgreementType agreement =c.getAgreement();
-        switch (agreement) {
-            case SPOTPRICE:
-                this.amount = spotCostNOK();
-                break;
-
-            case POWERSUPPORT:
-                this.amount = spotCostNOK();
-                break;
-
-            case  NORGESPRICE:
-                this.amount = norgesPriceCost();
-                break;
-
-            default:
-                throw new IllegalArgumentException("Unknow agreement : " + agreement);
-        }
-
-    }
+    // POWERSUPPORT example rule: pay full up to threshold, above-threshold part discounted by SUPPORT_RATE
     private double powerSupportCost() {
         double sum = 0.0;
         for (int d = 0; d < usage.length; d++) {
@@ -120,34 +114,33 @@ public class Invoice {
                 double kwh = uday[h];
                 double price = pday[h];
 
-                if (price <= SUPPORT_THRESHOLD_NOK_PER_KWH){
+                if (price <= SUPPORT_THRESHOLD_NOK_PER_KWH) {
                     sum += kwh * price;
                 } else {
                     double base = SUPPORT_THRESHOLD_NOK_PER_KWH;
-                    double over =price - base;
-                    double userPaysOver = over *(1.0-SUPPORT_RATE);
-                    sum += kwh *(base + userPaysOver);
+                    double over = price - base;
+                    double userPaysOver = over * (1.0 - SUPPORT_RATE);
+                    sum += kwh * (base + userPaysOver);
                 }
             }
         }
         return sum;
     }
 
+    // NORGESPRICE example: simple monthly average price * total kWh
     private double norgesPriceCost() {
         double avg = simpleMonthlyAveragePrice();
         return totalUsageKWh() * avg;
     }
 
-    public void printInvoice() { //samsam
-        System.out.println("Customer Number" +  customer_Id);
-        System.out.println("Name" +  name);
-        System.out.println("Email" +  email);
-        System.out.println("Agreement" +  agreement);
-        System.out.println();
-        System.out.println("Month: " +  month);
-        System.out.printf("Usage:  %.2f kWh\n", usage);
-        System.out.printf("Amount:  %.2f\n", amount);
-
-
+    // unweighted average of hourly prices
+    private double simpleMonthlyAveragePrice() {
+        double sum = 0.0;
+        int count = 0;
+        for (double[] day : prices) {
+            if (day == null) continue;
+            for (double p : day) { sum += p; count++; }
+        }
+        return count == 0 ? 0.0 : sum / count;
     }
 }

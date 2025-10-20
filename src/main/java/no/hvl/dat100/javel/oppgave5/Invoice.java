@@ -13,6 +13,10 @@ public class Invoice {
     private double[][] prices; // power prices for this month
 
     private double amount; // power price for this month
+    private int customerNumber ;
+    private String name;
+    private String email;
+    private String agreement;
 
 
     public Invoice(Customer c, String month, double[][] usage, double[][] power_prices) { // elisa
@@ -29,6 +33,11 @@ public class Invoice {
         this.usage = usage;
         this.prices = power_prices;
         this.amount = 0.0; // explicitly start at 0
+        this.customerNumber = customerNumber;
+        this.name = name;
+        this.email = email;
+        this.agreement = agreement;
+
     }
 
     // --- helpers ---
@@ -81,8 +90,15 @@ public class Invoice {
     }
 
     public void printInvoice() { //samsam
+        System.out.println("Customer number" +  customerNumber);
+        System.out.println("Name" +  name);
+        System.out.println("Email" +  email);
+        System.out.println("Agreement" +  agreement);
+        System.out.println();
+        System.out.println("Month: " +  month);
+        System.out.printf("Usage:  %.2f kWh\n", usage);
+        System.out.printf("Amount:  %.2f\n", amount);
 
-        // TODO
 
     }
 }

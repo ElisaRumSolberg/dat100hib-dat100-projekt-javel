@@ -2,6 +2,7 @@ package no.hvl.dat100.javel.oppgave5;
 
 import no.hvl.dat100.javel.oppgave3.Customer;
 import no.hvl.dat100.javel.oppgave2.MonthlyPower;
+import no.hvl.dat100.javel.oppgave3.PowerAgreementType;
 
 import java.util.Arrays;
 
@@ -84,9 +85,57 @@ public class Invoice {
     }
 
     public void computeAmount() { // Alissa
+        if(c ==null || c.getAgreement() == null){
+            throw new IllegalArgumentException("Customer cannot be null");
+        }
 
-        // TODO
+        PowerAgreementType agreement =c.getAgreement();
+        switch (agreement) {
+            case SPOTPRICE:
+                this.amount = spotCostNOK();
+                break;
 
+            case POWERSUPPORT:
+                this.amount = spotCostNOK();
+                break;
+
+            case  NORGESPRICE:
+                this.amount = norgesPriceCost();
+                break;
+
+            default:
+                throw new IllegalArgumentException("Unknow agreement : " + agreement);
+        }
+
+    }
+    private double powerSupportCost() {
+        double sum = 0.0;
+        for (int d = 0; d < usage.length; d++) {
+            double[] uday = usage[d];
+            double[] pday = prices[d];
+            if (uday == null || pday == null) continue;
+
+            int len = Math.min(uday.length, pday.length);
+            for (int h = 0; h < len; h++) {
+                double kwh = uday[h];
+                double price = pday[h];
+
+                if (price <= SUPPORT_THRESHOLD_NOK_PER_KWH){
+                    sum += kwh * price;
+                } else {
+                    double base = SUPPORT_THRESHOLD_NOK_PER_KWH;
+                    double over =price - base;
+                    double userPaysOver = over *(1.0-SUPPORT_RATE);
+                    sum += kwh *(base + userPaysOver);
+                }
+            }
+        }
+        return sum;
+    }
+
+    private double norgesPriceCost() {
+        double avg = simpleMonthlyAveragePrice();
+        return totalUsageKWh() * avg;
     }
 
     public void printInvoice() { //samsam

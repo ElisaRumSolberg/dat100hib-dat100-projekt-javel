@@ -109,6 +109,5 @@ public class CustomersMain {
         System.out.println("===========================");
         printList(repo.getCustomers(), "Endelig liste:");
 
-
     }
 }

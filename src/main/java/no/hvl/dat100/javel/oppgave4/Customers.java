@@ -9,21 +9,22 @@ public class Customers {
     // a) Complete constructor    alissa
     public Customers(int size) {
 
-       if(size<0){
-           throw new IllegalArgumentException("size must be non-negative");
-       }
-       this.customers = new Customer[size];
+        if (size < 0) {
+            throw new IllegalArgumentException("size must be non-negative");
+        }
+        this.customers = new Customer[size];
     }
 
     // b) count number of non-null references   elisa
     public int countNonNull() {
-
-
         int count = 0;
-
-        // TODO
-
+        for (Customer c : customers) {
+            if (c != null) {
+                count++;
+            }
+        }
         return count;
+
     }
 
     // c) return reference to customer with given id (if exists) samsam
@@ -46,23 +47,12 @@ public class Customers {
 
     // d) add a customer to the reference table alissa
     public boolean addCustomer(Customer c) {
-
         boolean inserted = false;
 
-        if(c==null) return false;
-
-        if(getCustomer(c.getId())!=null){
-            return false;
-        }
-
-        for(int i=0;i<customers.length;i++){
-            if(customers[i]==null){
-                customers[i]=c;
-                return true;
-            }
-        }
+        // TODO
 
         return inserted;
+
     }
 
     // e) remove customer with given id from reference table elisa
@@ -71,10 +61,18 @@ public class Customers {
         boolean deleted = false;
         Customer c = null;
 
-        // TODO
-
+        for (int i = 0; i < customers.length; i++) {
+            Customer curr = customers[i];
+            if (curr != null && curr.getCustomer_id() == customer_id) {
+                c = curr;
+                customers[i] = null;
+                deleted = true;
+                break;
+            }
+        }
         return c;
     }
+
 
     // f) return reference table with all customers samsam
     public Customer[] getCustomers() {

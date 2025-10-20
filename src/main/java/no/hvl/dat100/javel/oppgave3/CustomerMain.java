@@ -12,6 +12,14 @@ public class CustomerMain {
         System.out.println();
 
         // 1) Create a Customer object (constructor test)
+        Customer c = new Customer(
+                "Alice Smith",
+                "alice@example.com",
+                1001,
+                PowerAgreementType.SPOTPRICE
+        );
+
+
         Customer c1 = new Customer(
                 "Elisa Rumeysa Solberg",
                 "elisarumeysasolbeg@gmail.com",
@@ -28,9 +36,13 @@ public class CustomerMain {
                 "Samsam Abdi-Kerim",
                 "samsam@hotmail.com",
                 1003,
-                PowerAgreementType.SPOTPRICE
+                PowerAgreementType.POWERSUPPORT
         );
+
         System.out.println("== Created customer ==");
+        // Print using toString()
+        System.out.println(c);
+        System.out.println();
         System.out.println(c1);
         System.out.println("======================");
         System.out.println(c2);
@@ -40,27 +52,43 @@ public class CustomerMain {
 
         // 3) Test getters
         System.out.println("== Getter tests ==");
-        System.out.println("Name: " + c1.getName());
-        System.out.println("Email: " + c1.getEmail());
-        System.out.println("Customer ID: " + c1.getCustomer_id());
-        System.out.println("Agreement: " + c1.getAgreement());
+        System.out.println("Name: " + c.getName());
+        System.out.println("Email: " + c.getEmail());
+        System.out.println("Customer ID: " + c.getCustomer_id());
+        System.out.println("Agreement: " + c.getAgreement());
         System.out.println("==========================");
 
         // 4) Test setters (update some fields)
+        // Test setters (change some fields)
+        c.setName("Alice B. Smith");
+        c.setEmail("alice.b@example.com");
+        c.setAgreement(PowerAgreementType.NORGESPRICE);
+
         c1.setEmail("elsol0297@hvl.no");
-        c1.setAgreement(PowerAgreementType.NORGESPRICE);
+        c1.setAgreement(PowerAgreementType.POWERSUPPORT);
         c1.setName("Elisa R. Solberg");
 
         c3.setEmail("190154@stud.hvl.no");
 
         // 5) Print again after updates
         System.out.println("== After updates (setter tests) ==");
+        System.out.println(c);
+        System.out.println("========================");
         System.out.println(c1);
         System.out.println("========================");
         System.out.println(c2);
         System.out.println("========================");
         System.out.println(c3);
         System.out.println("========================");
+
+        boolean ok =
+                "Alice Smith".equals(c.getName()) &&
+                        "alice@example.com".equals(c.getEmail()) &&
+                        c.getCustomer_id() == 1001 &&
+                        c.getAgreement() == PowerAgreementType.SPOTPRICE;
+
+        System.out.println("All basic tests passed for c?: " + ok);
+        System.out.println("====================================");
 
         boolean ok1 =
                 "Elisa R. Solberg".equals(c1.getName()) &&

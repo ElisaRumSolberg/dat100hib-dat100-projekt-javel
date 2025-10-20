@@ -39,7 +39,7 @@ public class CustomersMain {
                 1002, PowerAgreementType.SPOTPRICE);
         Customer sAlissa = new Customer("Alissa Ruya Aksel", "rs.aksel.7@gmail.com",
                 1003, PowerAgreementType.NORGESPRICE);
-        Customer sSamsam = new Customer("Samsam Abdi-Kerim", "samsam@hotmail.com",
+        Customer sSamsam = new Customer("Samsam Abdi-Karim", "samsam@hotmail.com",
                 1004, PowerAgreementType.POWERSUPPORT);
 
         // Testdata – LÆRERENS eksempelsett

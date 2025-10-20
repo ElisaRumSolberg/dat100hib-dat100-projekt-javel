@@ -24,5 +24,9 @@ public class InvoiceMain {
 
         */
 
+        // c)
+         Invoice invoiceAlice = new Invoice(c1.getCustomer_id())
+
+
     }
 }

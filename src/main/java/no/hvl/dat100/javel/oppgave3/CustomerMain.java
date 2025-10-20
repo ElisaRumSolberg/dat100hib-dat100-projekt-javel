@@ -33,7 +33,7 @@ public class CustomerMain {
                 PowerAgreementType.NORGESPRICE
         );
         Customer c3 = new Customer(
-                "Samsam Abdi-Kerim",
+                "Samsam Abdi-Karim",
                 "samsam@hotmail.com",
                 1004,
                 PowerAgreementType.POWERSUPPORT
@@ -107,7 +107,7 @@ public class CustomerMain {
         System.out.println("====================================");
 
         boolean ok3=
-                "Samsam Abdi-Kerim".equals(c3.getName()) &&
+                "Samsam Abdi-Karim".equals(c3.getName()) &&
                         "190154@stud.hvl.no".equals(c3.getEmail()) &&
                         c3.getCustomer_id()==1004 &&
                         c3.getAgreement() == PowerAgreementType.SPOTPRICE;

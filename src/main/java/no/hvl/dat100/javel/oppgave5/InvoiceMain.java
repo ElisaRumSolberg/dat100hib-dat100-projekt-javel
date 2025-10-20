@@ -14,19 +14,29 @@ public class InvoiceMain {
         System.out.println();
 
 
+        // 1) Customers (match the example in the assignment)
+        Customer c1 = new Customer("Charlie Rose", "charlie@example.com", 1003, PowerAgreementType.POWERSUPPORT);
+        Customer c2 = new Customer("Diana Prince",  "diana@example.com",  1004, PowerAgreementType.NORGESPRICE);
+        Customer c3 = new Customer("Ethan Hunt",    "ethan@example.com",  1005, PowerAgreementType.SPOTPRICE);
 
-        // c)
-         int customer_Id =c1.getCustomer_id();
-         String name = c1.getName();
-         String email = c1.getEmail();
-         PowerAgreementType agreement = c1.getAgreement();
-         String month = "January";
-         Double usage = 600.25;
-         Double amount = 1100.50;
+        // 2) Usage matrices (kWh) from your provided data
+        double[][] usage1 = CustomerPowerUsageData.usage_month_customer1;
+        double[][] usage2 = CustomerPowerUsageData.usage_month_customer2;
+        double[][] usage3 = CustomerPowerUsageData.usage_month_customer3;
 
-        Invoice invoice = new Invoice(Customer c1, name, email, agreement, month, usage, amount);
+        // 3) Prices matrix (NOK/kWh) from oppgave2
 
-        invoice.printInvoice();
+        double[][] prices = MonthPowerData.powerprices_month;
+
+        // 4) Build invoices for "January"
+        Invoice inv1 = new Invoice(c1, "January", usage1, prices);
+        Invoice inv2 = new Invoice(c2, "January", usage2, prices);
+        Invoice inv3 = new Invoice(c3, "January", usage3, prices);
+
+
+        // 5) Process & print all
+        Invoice[] all = { inv1, inv2, inv3 };
+        Invoices.processInvoices(all);
 
 
     }

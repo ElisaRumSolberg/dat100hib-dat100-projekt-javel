@@ -71,14 +71,14 @@ public class Invoice {
     }
 
     public void printInvoice() { //samsam
-        System.out.println("Customer Number" +  c.getCustomer_id());
-        System.out.println("Name" +  c.getName());
-        System.out.println("Email" +  c.getEmail());
-        System.out.println("Agreement" +  c.getAgreement());
+        System.out.println("Customer Number: " +  c.getCustomer_id());
+        System.out.println("Name: " +  c.getName());
+        System.out.println("Email: " +  c.getEmail());
+        System.out.println("Agreement: " +  c.getAgreement());
         System.out.println();
         System.out.println("Month: " +  month);
-        System.out.printf("Usage:  %.2f kWh\n", usage);
-        System.out.printf("Amount:  %.2f\n", amount);
+        System.out.printf("Usage:  %10.2f kWh%n", totalUsageKWh());
+        System.out.printf("Amount:  %.2f", amount);
 
 
     }

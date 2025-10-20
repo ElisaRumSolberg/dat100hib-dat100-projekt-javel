@@ -14,7 +14,7 @@ public class Invoice {
     private double[][] prices; // power prices for this month
 
     private double amount; // power price for this month
-    private int customerId;
+    private int customer_Id;
     private String name;
     private String email;
     private String agreement;
@@ -34,7 +34,7 @@ public class Invoice {
         this.usage = usage;
         this.prices = power_prices;
         this.amount = 0.0; // explicitly start at 0
-        this.customerId = customerId;
+        this.customer_Id = customer_Id;
         this.name = name;
         this.email = email;
         this.agreement = agreement;
@@ -139,7 +139,7 @@ public class Invoice {
     }
 
     public void printInvoice() { //samsam
-        System.out.println("Customer Number" +  customerId);
+        System.out.println("Customer Number" +  customer_Id);
         System.out.println("Name" +  name);
         System.out.println("Email" +  email);
         System.out.println("Agreement" +  agreement);

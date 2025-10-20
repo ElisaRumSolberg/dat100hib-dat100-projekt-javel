@@ -25,7 +25,17 @@ public class InvoiceMain {
         */
 
         // c)
-         Invoice invoiceAlice = new Invoice(c1.getCustomer_id())
+         int customer_Id =c1.getCustomer_id();
+         String name = c1.getName();
+         String email = c1.getEmail();
+         PowerAgreementType agreement = c1.getAgreement();
+         String month = "January";
+         Double usage = 600.25;
+         Double amount = 1100.50;
+
+        Invoice invoice = new Invoice(Customer c1, name, email, agreement, month, usage, amount);
+
+        invoice.printInvoice();
 
 
     }

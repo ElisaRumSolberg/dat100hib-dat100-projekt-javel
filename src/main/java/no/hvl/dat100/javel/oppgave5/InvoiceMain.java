@@ -13,6 +13,10 @@ public class InvoiceMain {
         System.out.println("==============");
         System.out.println();
 
+        Customer c1 = new Customer("Alice Smith", "alice@example.com", 1001, PowerAgreementType.SPOTPRICE);
+        Customer c2 = new Customer("Bob Brown", "bob@example.com", 1002, PowerAgreementType.POWERSUPPORT);
+        Customer c3 = new Customer("Charlie Rose", "charlie@example.com", 1003, PowerAgreementType.NORGESPRICE);
+
         /*
         TODO
 
